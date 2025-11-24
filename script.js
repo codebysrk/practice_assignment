@@ -305,17 +305,22 @@ let flag = false;
 let balance = 1000;
 
 while (balance > 0 && count !== 0) {
-  let withdrawal = +prompt(`Enter number`);
+  let withdrawal = +prompt(
+    `Enter withdrawal amount 
+    (Available balance: ${balance})
+    (Transaction left: ${count})`
+  );
   count--;
-  if (withdrawal <= balance) {
-    balance -= withdrawal;
-  } else {
-    flag = true;
+  if (withdrawal < 0) {
+    console.log("Invalid input");
     break;
   }
+  if (withdrawal > balance) {
+    console.log("Insufficient Balance");
+    break;
+  }
+  balance -= withdrawal;
 }
-if (flag) {
-  console.log("Insufficient Balance");
-}
-// console.log(count);
+alert(`Available balance: ${balance}`);
 console.log(`Available balance: ${balance}`);
+console.log(count);
