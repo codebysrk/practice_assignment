@@ -313,14 +313,15 @@ while (balance > 0 && count !== 0) {
   count--;
   if (withdrawal < 0) {
     console.log("Invalid input");
+    alert("Invalid input");
     break;
   }
   if (withdrawal > balance) {
     console.log("Insufficient Balance");
+    alert("Insufficient Balance");
     break;
   }
   balance -= withdrawal;
 }
 alert(`Available balance: ${balance}`);
 console.log(`Available balance: ${balance}`);
-console.log(count);
